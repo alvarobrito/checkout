@@ -30,7 +30,7 @@ class Checkout {
       },
       {
         code: 'MUG',
-        name: 'Cafify Coffee Mug',
+        name: 'Cabify Coffee Mug',
         price: 7.50,
       },
     ];
