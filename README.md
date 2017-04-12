@@ -1,2 +1,2 @@
 # checkout
-A example based on a checkout process in a store
+> You only need to open the index file and check the console

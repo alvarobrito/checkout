@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkout</title>
+</head>
+<body>
+	<script type="text/javascript" src="checkout.js"></script>
+	<script type="text/javascript" src="ticket.js"></script>
+	<script type="text/javascript">
+		const pricingRules = {
+			'XFORY': {
+				code: 'VOUCHER',
+				x: 2,
+				y: 1
+			},
+			'BULK': {
+				code: 'TSHIRT',
+				minItems: 3,
+				discountPrice: 19.00
+			},
+		};
+
+		// Checkout 1
+		const co1 = new Checkout(pricingRules);
+		co1.scan('VOUCHER').scan('TSHIRT').scan('MUG');
+		const ticket1 = new Ticket({ items: co1.cart, total: co1.total() });
+		ticket1.print();
+
+		// Checkout 2
+		const co2 = new Checkout(pricingRules);
+		co2.scan('VOUCHER').scan('TSHIRT').scan('VOUCHER');
+		const ticket2 = new Ticket({ items: co2.cart, total: co2.total() });
+		ticket2.print();
+
+		// CHeckout 3
+		const co3 = new Checkout(pricingRules);
+		co3.scan('TSHIRT').scan('TSHIRT').scan('TSHIRT').scan('VOUCHER').scan('TSHIRT');
+		const ticket3 = new Ticket({ items: co3.cart, total: co3.total() });
+		ticket3.print();
+
+		// Checkout 4
+		const co4 = new Checkout(pricingRules);
+		co4.scan('VOUCHER').scan('TSHIRT').scan('VOUCHER').scan('VOUCHER').scan('MUG').scan('TSHIRT').scan('TSHIRT');
+		const ticket4 = new Ticket({ items: co4.cart, total: co4.total() });
+		ticket4.print();
+
+	</script>
+</body>
+</html>
